@@ -1,9 +1,0 @@
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Release\netcoreapp2.0\TEST2.deps.json
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Release\netcoreapp2.0\TEST2.runtimeconfig.json
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Release\netcoreapp2.0\TEST2.runtimeconfig.dev.json
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Release\netcoreapp2.0\TEST2.dll
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Release\netcoreapp2.0\TEST2.csprojAssemblyReference.cache
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Release\netcoreapp2.0\TEST2.csproj.CoreCompileInputs.cache
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Release\netcoreapp2.0\TEST2.AssemblyInfoInputs.cache
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Release\netcoreapp2.0\TEST2.AssemblyInfo.cs
-C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Release\netcoreapp2.0\TEST2.dll
