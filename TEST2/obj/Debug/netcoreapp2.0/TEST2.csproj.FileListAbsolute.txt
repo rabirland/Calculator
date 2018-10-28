@@ -1,0 +1,25 @@
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\obj\Debug\netcoreapp2.0\TEST2.csprojAssemblyReference.cache
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\obj\Debug\netcoreapp2.0\TEST2.csproj.CoreCompileInputs.cache
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\obj\Debug\netcoreapp2.0\TEST2.AssemblyInfoInputs.cache
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\obj\Debug\netcoreapp2.0\TEST2.AssemblyInfo.cs
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\obj\Debug\netcoreapp2.0\TEST2.dll
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\obj\Debug\netcoreapp2.0\TEST2.pdb
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\bin\Debug\netcoreapp2.0\TEST2.deps.json
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\bin\Debug\netcoreapp2.0\TEST2.runtimeconfig.json
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\bin\Debug\netcoreapp2.0\TEST2.runtimeconfig.dev.json
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\bin\Debug\netcoreapp2.0\TEST2.dll
+C:\Users\riba.daniel\source\repos\TEST2\TEST2\bin\Debug\netcoreapp2.0\TEST2.pdb
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\TEST2.deps.json
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\TEST2.runtimeconfig.json
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\TEST2.runtimeconfig.dev.json
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\TEST2.dll
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\TEST2.pdb
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.csprojAssemblyReference.cache
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.csproj.CoreCompileInputs.cache
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.AssemblyInfoInputs.cache
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.AssemblyInfo.cs
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.dll
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.pdb
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\Calculator.dll
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\bin\Debug\netcoreapp2.0\Calculator.pdb
+C:\Users\rabirland\Documents\Visual Studio\Calculator\TEST2\obj\Debug\netcoreapp2.0\TEST2.csproj.CopyComplete
