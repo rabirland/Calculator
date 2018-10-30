@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calculator.Nodes
+namespace AdvancedCalculator.Nodes
 {
 	class BracketNode : UnaryCollectionNode
 	{

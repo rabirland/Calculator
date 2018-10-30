@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Calculator.Tokens
+namespace AdvancedCalculator.Tokens
 {
 	public class TokenParser
 	{
@@ -13,9 +13,21 @@ namespace Calculator.Tokens
 		{
 			this.TokenParsers = new List<ITokenParser>();
 
+			//Basic
 			this.TokenParsers.Add(new NumberTokenParser());
-			this.TokenParsers.Add(new AddTokenParser());
-			this.TokenParsers.Add(new MultiplyTokenParser());
+			this.TokenParsers.Add(new BracketTokenParser());
+
+			//Operators
+			this.TokenParsers.Add(new AddOperatorTokenParser());
+			this.TokenParsers.Add(new SubtractOperatorTokenParser());
+
+			this.TokenParsers.Add(new MultiplyOperatorTokenParser());
+			this.TokenParsers.Add(new DivideOperatorTokenParser());
+
+			this.TokenParsers.Add(new PowerOperatorTokenParser());
+
+			//Functions
+			this.TokenParsers.Add(new PowerFunctionTokenParser());
 		}
 
 		public Token[] Parse(string stream)
@@ -26,13 +38,15 @@ namespace Calculator.Tokens
 			{
 				foreach (ITokenParser parser in this.TokenParsers)
 				{
-					Token token = parser.TryParse(stream);
-					if (token != null)
+					int parsed = parser.TryParse(stream, this, out Token token);
+					if (parsed > 0)
 					{
 						ret.Add(token);
-						stream = stream.Remove(0, token.Representative.Length);
+						stream = stream.Remove(0, parsed);
 						continue;
 					}
+
+					if (stream.Length == 0) break;
 				}
 			}
 

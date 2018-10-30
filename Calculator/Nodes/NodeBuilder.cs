@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-using Calculator.Tokens;
+using AdvancedCalculator.Tokens;
 
-namespace Calculator.Nodes
+namespace AdvancedCalculator.Nodes
 {
 	public class NodeBuilder
 	{
@@ -25,14 +25,15 @@ namespace Calculator.Nodes
 				if (root == null) root = tokenNode; //If there is no root yet => create it.
 				else
 				{
-					if (FindFreeSlot(root, out ICollectionNode child, out int index)) //Find the first empty slot in the current tree
+					if (FindEmptyLast(root, out IOperatorNode child, out int index)) //If not an operator => Find the last (right-most) empty slot in the tree.
 					{
 						child[index] = tokenNode;
 					}
-					else if (tokenNode is ICollectionNode && FindFreeSlot(tokenNode, out child, out index)) //If there is no empty slots in the tree and the new node is a collection => make it root
+					else if (tokenNode is IOperatorNode)
 					{
-						child[index] = root; //Make the current root as child
-						root = tokenNode; //Register a new root
+						IOperatorNode node = (IOperatorNode)tokenNode;
+						node[0] = root;
+						root = tokenNode;
 					}
 					else
 					{
@@ -45,7 +46,25 @@ namespace Calculator.Nodes
 			return root;
 		}
 
-		private static bool FindFreeSlot(Node node, out ICollectionNode parent, out int index)
+		private static bool FindEmptyLast(Node node, out IOperatorNode parent, out int index)
+		{
+			if (node == null) throw new ArgumentNullException(nameof(node));
+			index = -1;
+			parent = null;
+			if (!(node is IOperatorNode)) return false;
+
+			IOperatorNode coll = (IOperatorNode)node;
+
+			if (coll[coll.Length - 1] == null)
+			{
+				parent = coll;
+				index = coll.Length - 1;
+				return true;
+			}
+			else return FindEmptyLast(coll[coll.Length - 1], out parent, out index);
+		}
+
+		private static bool FindFreeSlot(Node node, out ICollectionNode parent, out int index, bool forward = true)
 		{
 			if (node == null) throw new ArgumentNullException(nameof(node));
 			index = -1;
@@ -54,31 +73,41 @@ namespace Calculator.Nodes
 
 			ICollectionNode coll = (ICollectionNode)node;
 
-			for (int i = 0; i < coll.Length; i++)
+			//TODO: Remove code duplication
+			if (forward)
 			{
-				if (coll[i] == null)
+				for (int i = 0; i < coll.Length; i++)
 				{
-					index = i;
-					parent = coll;
-					return true;
+					if (coll[i] == null)
+					{
+						index = i;
+						parent = coll;
+						return true;
+					}
+					else if (coll[i] is ICollectionNode && FindFreeSlot(coll[i], out parent, out index)) //Recursively look in childs
+					{
+						return true;
+					}
 				}
-				else if (coll[i] is ICollectionNode && FindFreeSlot(coll[i], out parent, out index)) //Recursively look in childs
+			}
+			else
+			{
+				for (int i = coll.Length - 1; i >= 0; i--)
 				{
-					return true;
+					if (coll[i] == null)
+					{
+						index = i;
+						parent = coll;
+						return true;
+					}
+					else if (coll[i] is ICollectionNode && FindFreeSlot(coll[i], out parent, out index)) //Recursively look in childs
+					{
+						return true;
+					}
 				}
 			}
 
 			return false;
-		}
-
-		public static void ReorderByPrecedence(Node root)
-		{
-
-		}
-
-		private static void SwapPrecedence()
-		{
-
 		}
 	}
 }

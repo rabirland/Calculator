@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calculator.Nodes
+namespace AdvancedCalculator.Nodes
 {
     class NumberNode : UnaryNode
     {
@@ -20,7 +20,7 @@ namespace Calculator.Nodes
 
 		public override string ToString()
 		{
-			return this.Value.ToString();
+			return this.Value.ToString(Constants.NumberFormat);
 		}
 	}
 }

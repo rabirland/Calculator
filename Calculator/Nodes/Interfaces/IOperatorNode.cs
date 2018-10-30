@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calculator.Nodes
+namespace AdvancedCalculator.Nodes
 {
-	interface IOperatorNode
+	interface IOperatorNode : ICollectionNode
 	{
 		int Precedence { get; }
+	}
+
+	interface IPrecedenceFixer
+	{
+		Node FixPrecedence();
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calculator.Nodes
+namespace AdvancedCalculator.Nodes
 {
 	public abstract class UnaryCollectionNode : UnaryNode, ICollectionNode
 	{
@@ -37,11 +37,26 @@ namespace Calculator.Nodes
 			}
 		}
 
+		public int GetIndex(Node node)
+		{
+			if (node == null) throw new ArgumentNullException(nameof(node));
+
+			if (this.Child != null && this.Child == node) return 0;
+			else return -1;
+		}
+
 		public override decimal GetValue()
 		{
 			return this.Child.GetValue();
 		}
 
 		public int Length => 1;
+
+		public bool CanAdd(Node node, int index) => true;
+
+		public void BeforeAdd(Node node, int index)
+		{
+
+		}
 	}
 }

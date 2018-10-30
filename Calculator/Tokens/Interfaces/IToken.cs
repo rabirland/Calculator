@@ -2,24 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-using Calculator.Nodes;
+using AdvancedCalculator.Nodes;
 
-namespace Calculator.Tokens
+namespace AdvancedCalculator.Tokens
 {
 	public abstract class Token
 	{
-		public string Representative { get; private set; }
-
-		public Token(string representative)
-		{
-			this.Representative = representative;
-		}
-
 		public abstract Node GetNode();
 	}
 
 	public interface ITokenParser
 	{
-		Token TryParse(string stream);
+		int TryParse(string stream, TokenParser parser, out Token token);
 	}
 }

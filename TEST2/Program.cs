@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Calculator;
-using Calculator.Nodes;
-using Calculator.Tokens;
+using AdvancedCalculator;
+using AdvancedCalculator.Nodes;
+using AdvancedCalculator.Tokens;
 
 namespace TEST2
 {
@@ -10,17 +10,18 @@ namespace TEST2
     {
         static void Main(string[] args)
         {
-			TokenParser tokenStream = new TokenParser();
+			Console.Write("Képlet: ");
+			string input = "";
 
-			string stream = "1+2*3+4";
+			Calculator calc = new Calculator();
 
-			Token[] tokens = tokenStream.Parse(stream);
+			while (!string.IsNullOrEmpty(input = Console.ReadLine()))
+			{
+				calc.Parse(input);
+				Console.WriteLine($"Eredmény: {calc.GetValue().ToString(Calculator.NumberFormat)}");
 
-			Node node = NodeBuilder.BuildTree(tokens);
-
-
-			Console.WriteLine("-= DONE =-");
-			Console.ReadLine();
+				Console.Write("Képlet: ");
+			}
         }
     }
 }

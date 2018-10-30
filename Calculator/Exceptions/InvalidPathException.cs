@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calculator
+namespace AdvancedCalculator
 {
     class InvalidPathException : Exception
     {

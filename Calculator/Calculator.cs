@@ -1,14 +1,25 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
-using Calculator.Nodes;
+using AdvancedCalculator.Nodes;
+using AdvancedCalculator.Tokens;
 
-namespace Calculator
+namespace AdvancedCalculator
 {
-    class Calculator
+    public class Calculator
     {
+		public static NumberFormatInfo NumberFormat => Constants.NumberFormat; 
+
 		public Node Root { get; set; }
+		TokenParser tokenParser;
+
+		public Calculator()
+		{
+			tokenParser = new TokenParser();
+		}
 
 		public Node GetNode(int[] path)
 		{
@@ -67,9 +78,11 @@ namespace Calculator
 			throw new InvalidPathException();
 		}
 
-		public void ReplaceAsParent(int[] path, ICollectionNode collectionNode, int childIndex)
+		public void ReplaceAsParent(int[] path, Node node, int childIndex)
 		{
 			if (path == null) throw new ArgumentNullException(nameof(path));
+			if (!(node is ICollectionNode)) throw new Exception("Invalid node");
+			ICollectionNode collectionNode = (ICollectionNode)node;
 			if (collectionNode == null) throw new ArgumentNullException(nameof(collectionNode));
 			if (!(collectionNode is Node)) throw new ArgumentException("The given node is not a Calculator Node");
 
@@ -88,6 +101,68 @@ namespace Calculator
 		public decimal GetValue()
 		{
 			return this.Root.GetValue();
+		}
+
+		public void Parse(string input)
+		{
+			input = string.Concat(input.Where(c => !Char.IsWhiteSpace(c)));
+			Token[] tokens = this.tokenParser.Parse(input);
+			this.Root = NodeBuilder.BuildTree(tokens);
+			this.Optimize();
+			this.FixPrecedence();
+		}
+
+		public void FixPrecedence()
+		{
+			this.Root = FixPrecedence(this.Root);
+		}
+
+		public void Optimize()
+		{
+			this.Root = OptimizeInternal(this.Root);
+		}
+
+		private Node FixPrecedence(Node node)
+		{
+			if (node is ICollectionNode)
+			{
+				ICollectionNode op = (ICollectionNode)node;
+				//First, fix precedence of childs
+				for (int i = 0; i < op.Length; i++)
+				{
+					if (op[i] != null)
+					{
+						FixPrecedence(op[i]);
+					}
+				}
+			}
+
+			//Then the current one
+			if (node is IPrecedenceFixer)
+				return ((IPrecedenceFixer)node).FixPrecedence();
+			else return node;
+		}
+
+		private Node OptimizeInternal(Node node)
+		{
+			if (node is ICollectionNode)
+			{
+				ICollectionNode op = (ICollectionNode)node;
+				//First, fix precedence of childs
+				for (int i = 0; i < op.Length; i++)
+				{
+					if (op[i] != null)
+					{
+						Node optimizedChild = OptimizeInternal(op[i]);
+						if (optimizedChild != op[i])
+							op[i] = optimizedChild;
+					}
+				}
+			}
+
+			//Then the current one
+			Node optimized = node.Optimize();
+			return optimized;
 		}
 
 		public override string ToString()
