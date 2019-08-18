@@ -26,7 +26,7 @@ namespace AdvancedCalculator.Tokens
 			token = null;
 			if (string.IsNullOrEmpty(stream)) return 0;
 
-			if (stream[0] == Constants.MultiplyOperator)
+			if (stream[0] == Constants.DivideOperator)
 			{
 				token = new DivideOperatorToken();
 				return 1;

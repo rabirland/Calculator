@@ -13,12 +13,14 @@ namespace TEST2
 			Console.Write("Képlet: ");
 			string input = "";
 
-			Calculator calc = new Calculator();
+
+			AdvancedCalculator.Calculator calc = new AdvancedCalculator.Calculator();
 
 			while (!string.IsNullOrEmpty(input = Console.ReadLine()))
 			{
+
 				calc.Parse(input);
-				Console.WriteLine($"Eredmény: {calc.GetValue().ToString(Calculator.NumberFormat)}");
+				Console.WriteLine($"Eredmény: {calc.GetValue().ToString(AdvancedCalculator.Calculator.NumberFormat)}");
 
 				Console.Write("Képlet: ");
 			}

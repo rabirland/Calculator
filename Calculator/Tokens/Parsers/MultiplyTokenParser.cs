@@ -2,25 +2,25 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
-using Calculator.Nodes;
+using AdvancedCalculator.Nodes;
 
-namespace Calculator.Tokens
+namespace AdvancedCalculator.Tokens
 {
 	public class MultiplyToken : Token
 	{
-		public MultiplyToken(string representative) : base(representative)
+		public MultiplyToken(string representative)
 		{
 
 		}
 
 		public override Node GetNode()
 		{
-			return new MultiplyNode(null, null);
+			return new MultiplyNode();
 		}
 
 		public override string ToString()
 		{
-			return this.Representative;
+			return "*";
 		}
 	}
 
@@ -35,5 +35,7 @@ namespace Calculator.Tokens
 			if (stream[0] == AddMark) return new MultiplyToken("*");
 			else return null;
 		}
+
+		public int TryParse(string stream, TokenParser parser, out Token token) => throw new NotImplementedException();
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AdvancedCalculator.Nodes;
 
 namespace Calculator.Nodes
 {
@@ -41,6 +42,9 @@ namespace Calculator.Nodes
 		{
 			return this.Child.GetValue();
 		}
+
+		public int GetIndex(Node node) => throw new NotImplementedException();
+		public void BeforeAdd(Node node, int index) => throw new NotImplementedException();
 
 		public int Length { get => 1; }
 
@@ -84,6 +88,9 @@ namespace Calculator.Nodes
 		public int Length { get => 2; }
 
 		public abstract int Precedence { get; }
+
+		public void BeforeAdd(Node node, int index) => throw new NotImplementedException();
+		public int GetIndex(Node node) => throw new NotImplementedException();
 	}
 
 	public abstract class TwoOperandOperatorUnaryLeftBase : Node, ICollectionNode, IOperatorNode
@@ -123,6 +130,9 @@ namespace Calculator.Nodes
 		public int Length { get => 2; }
 
 		public abstract int Precedence { get; }
+
+		public void BeforeAdd(Node node, int index) => throw new NotImplementedException();
+		public int GetIndex(Node node) => throw new NotImplementedException();
 	}
 
 	public abstract class ThreeOperandOperatorBase : Node, ICollectionNode, IOperatorNode
@@ -170,5 +180,8 @@ namespace Calculator.Nodes
 		public int Length { get => 3; }
 
 		public abstract int Precedence { get; }
+
+		public void BeforeAdd(Node node, int index) => throw new NotImplementedException();
+		public int GetIndex(Node node) => throw new NotImplementedException();
 	}
 }
