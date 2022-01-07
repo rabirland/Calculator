@@ -10,7 +10,7 @@ namespace TEST2
     {
         static void Main(string[] args)
         {
-			Console.Write("Képlet: ");
+			Console.Write("Expression: ");
 			string input = "";
 
 
@@ -20,9 +20,9 @@ namespace TEST2
 			{
 
 				calc.Parse(input);
-				Console.WriteLine($"Eredmény: {calc.GetValue().ToString(AdvancedCalculator.Calculator.NumberFormat)}");
+				Console.WriteLine($"Result: {calc.GetValue().ToString(AdvancedCalculator.Calculator.NumberFormat)}");
 
-				Console.Write("Képlet: ");
+				Console.Write("Expression: ");
 			}
         }
     }

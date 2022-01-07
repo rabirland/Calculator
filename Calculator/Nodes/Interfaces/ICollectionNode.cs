@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AdvancedCalculator.Nodes
 {
-	interface ICollectionNode
+	public interface ICollectionNode
 	{
 		Node this[int index] { get; set; }
 

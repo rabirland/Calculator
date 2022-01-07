@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace AdvancedCalculator.Tokens
 {
@@ -28,6 +25,10 @@ namespace AdvancedCalculator.Tokens
 
 			//Functions
 			this.TokenParsers.Add(new PowerFunctionTokenParser());
+			this.TokenParsers.Add(new SqrtFunctionTokenParser());
+			this.TokenParsers.Add(new SinFunctionTokenParser());
+			this.TokenParsers.Add(new CosFunctionTokenParser());
+			this.TokenParsers.Add(new TanFunctionTokenParser());
 		}
 
 		public Token[] Parse(string stream)
